@@ -1,0 +1,91 @@
+Speed and Stopping Distance of Cars
+========================================================
+```{r}
+?cars
+```
+
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+
+
+```{r}
+str(cars)
+```
+
+```{r}
+summary(mtcars)
+```
+
+```{r}
+efficient <- subset(mtcars, mpg >= 23)
+efficient
+```
+
+
+```{r}
+#How many cars get more than 23 mpg?
+count(efficient)
+```
+```{r}
+subset(mtcars, mpg > 30 & hp > 100) #cars that are greater than 30 miles per gallon (mpg) and have more than 100 raw horsepower.
+```
+
+```{r}
+subset(mtcars, mpg < 14 | disp > 390)
+```
+
+```{r}
+subset(mtcars, qsec >= 16.90)
+```
+
+```{r}
+?mtcars
+lightCars <- subset(mtcars,wt < 2000)
+lightCars
+```
+```{r}
+mtcars$year <- 1974
+mtcars$year #changes the number of variables in workspace
+```
+```{r}
+```
+
+
+```{r}
+mtcars <- subset(mtcars, select = -year) #dropping year from dataset
+```
+
+```{r}
+mtcars$year <- c(1973, 1974)
+mtcars$year
+```
+```{r}
+mtcars <- subset(mtcars, select = -year) #dropping year from dataset
+```
+```{r}
+mtcars$wt
+cond <- mtcars$wt < 3
+cond
+mtcars$weight_class <- ifelse(cond, 'light', 'average')
+mtcars$weight_class
+cond <- mtcars$wt > 3.5
+mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class)
+mtcars$weight_class
+```
+```{r}
+rm(cond)
+rm(efficient)
+```
+```{r}
+#install.packages('knitr', dependencies = T)
+#library(knitr)
+```
+
+```{r}
+
+#Which car(s) have an mpg (miles per gallon) greater than or equal to 30 OR hp (horsepower) less than 60? Create an R chunk of code to answer the quest
+subset(mtcars, mpg >= 30 | hp < 60)
+```
+
